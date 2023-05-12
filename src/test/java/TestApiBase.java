@@ -20,9 +20,9 @@ public class TestApiBase {
 
     public static ResponseSpecification getResponseSpecification(Cities city) {
         ResponseSpecification responseSpecification = RestAssured.expect();
+        responseSpecification.log().all();
         responseSpecification.statusCode(200);
         responseSpecification.body("name", equalTo(city.getCityName()));
-        responseSpecification.log().all();
         return responseSpecification;
     }
 }
